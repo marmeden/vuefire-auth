@@ -1,16 +1,16 @@
 <template>
-   <div class="login">
-      <h3>Sign in</h3>
+   <div class="sign-up">
+      <p>Let's create an account!</p>
       <input type="text" placeholder="Email"><br>
       <input type="password" placeholder="Password"><br>
-      <button>Connection</button>
-      <p>You don't have an account? You can create one</p>
+      <button>Sign Up</button>
+      <span>or go back to login</span>
    </div>
 </template>
 
 <script>
 export default {
-  name: 'login',
+  name: 'signUp',
   data: function () {
     return {}
   },
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style scoped>
-  .login {
+  .signUp {
     margin-top: 40px;
   }
   input{
@@ -30,16 +30,13 @@ export default {
     padding: 15px;
   }
   button {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 10%;
     cursor: pointer;
   }
-  p {
-    margin-top: 40px;
-    font-size: 13px;
-  }
-  p a {
-    text-decoration: underline;
-    cursor: pointer;
+  span {
+    display: block;
+    margin-top: 20px;
+    font-size: 11px;
   }
 </style>
