@@ -15,7 +15,9 @@ export default {
     return {}
   },
   methods: {
-
+    login: function() {
+        this.$router.replace('HelloWorld')
+    }
   }
 }
 </script>
