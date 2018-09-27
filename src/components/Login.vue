@@ -1,22 +1,34 @@
 <template>
    <div class="login">
       <h3>Sign in</h3>
-      <input type="text" placeholder="Email"><br>
-      <input type="password" placeholder="Password"><br>
-      <button v-on:click="login">Connection</button>
+      <input type="text" placeholder="Email" v-model="email"><br>
+      <input type="password" placeholder="Password" v-model="password"><br>
+      <button v-on:click="signIn">Connection</button>
       <p>You don't have an account? You can <router-link to="/sign-up">create one</router-link></p>
    </div>
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name: 'login',
   data: function () {
-    return {}
+    return {
+      email: '',
+      password: ''
+    }
   },
   methods: {
-    login: function () {
-      this.$router.replace('HelloWorld')
+    signIn: function () {
+      firebase.auth().signInwIthEmailAndPassword(this.email, this.password).then(
+        (user) => {
+          this.$router.replace('HelloWorld')
+        },
+        (err) => {
+          alert('oops ' + err.message)
+        }
+      )
     }
   }
 }
